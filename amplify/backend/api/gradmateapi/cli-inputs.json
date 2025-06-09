@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "paths": {
+    "/api/v1": {
+      "name": "/api/v1",
+      "lambdaFunction": "gradmateapiv1",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}

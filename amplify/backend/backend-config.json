@@ -1,0 +1,141 @@
+{
+  "api": {
+    "gradmateapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "gradmateapiv1"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "gradmate": {
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "managed"
+    }
+  },
+  "function": {
+    "gradmateapiv1": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "providerPlugin": "awscloudformation",
+      "service": "amplifyhosting",
+      "type": "manual"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_gradmateapiv1_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gradmateapiv1"
+        }
+      ]
+    },
+    "AMPLIFY_function_gradmateapiv1_openaiApiKey": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gradmateapiv1"
+        }
+      ]
+    },
+    "AMPLIFY_function_gradmateapiv1_pineconeApiKey": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gradmateapiv1"
+        }
+      ]
+    },
+    "AMPLIFY_function_gradmateapiv1_pineconeEnvironment": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gradmateapiv1"
+        }
+      ]
+    },
+    "AMPLIFY_function_gradmateapiv1_pineconeIndex": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gradmateapiv1"
+        }
+      ]
+    },
+    "AMPLIFY_function_gradmateapiv1_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gradmateapiv1"
+        }
+      ]
+    },
+    "AMPLIFY_function_gradmateapiv1_supabaseServiceRoleKey": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gradmateapiv1"
+        }
+      ]
+    },
+    "AMPLIFY_function_gradmateapiv1_supabaseUrl": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gradmateapiv1"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_appId": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_type": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    }
+  }
+}

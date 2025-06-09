@@ -175,4 +175,9 @@ export class AIService {
       throw error;
     }
   }
+
+  static async generateIdeas(userId: string) {
+    // Implementation will be added later
+    return "Generated ideas";
+  }
 } 
