@@ -3,16 +3,19 @@ frontend:
   phases:
     preBuild:
       commands:
-        - cd gradmate-frontend
+        # install root deps (concurrently, etc—not strictly needed but harmless)
         - npm install
     build:
       commands:
+        # this invokes the root "build" script above
         - npm run build
   artifacts:
+    # where Next.js outputs its production build
     baseDirectory: gradmate-frontend/.next
     files:
       - "**/*"
   cache:
     paths:
+      # speed up future builds by caching your frontend node_modules
       - gradmate-frontend/node_modules/**/*
       - gradmate-frontend/.next/cache/**/*

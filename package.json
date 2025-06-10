@@ -1,20 +1,19 @@
 {
   "name": "gradmate",
   "version": "1.0.0",
-  "description": "GradMate - Research Lab Application Platform",
+  "description": "GradMate – Research Lab Application Platform",
   "scripts": {
     "install:all": "npm install && cd gradmate-frontend && npm install && cd ../gradmate-backend && npm install",
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "dev:frontend": "cd gradmate-frontend && npm run dev",
     "dev:backend": "cd gradmate-backend && npm run dev",
-    "build": "concurrently \"npm run build:frontend\" \"npm run build:backend\"",
+    // ← **Override the root build** to only build the frontend:
+    "build": "cd gradmate-frontend && npm install && npm run build",
     "build:frontend": "cd gradmate-frontend && npm run build",
     "build:backend": "cd gradmate-backend && npm run build",
-    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
-    "start:frontend": "cd gradmate-frontend && npm run start",
-    "start:backend": "cd gradmate-backend && npm run start"
+    "start": "cd gradmate-frontend && npm run start"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
   }
-} 
+}
